@@ -1,0 +1,50 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/
+# ignore VSCode extensions folder (sometimes added by extensions)
+.vscode/extensions/
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+# don't accidentally include local vs code extension installations
+.vscode/extensions/*
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# System files
+Thumbs.db
+ehthumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+__pycache__/
+.pytest_cache/
+
+# Lock files often ok, but if you use pnpm or yarn, keep their lockfile
+# keep package-lock.json (already tracked)
+
+# Ignore user-level global VSCode extensions folder if present
+.vscode-server/
