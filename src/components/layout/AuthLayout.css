@@ -1,0 +1,158 @@
+.auth-root {
+  position: relative;
+  min-height: 100vh;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+/* particles sit behind everything */
+.auth-particles-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.35; /* soft, not distracting */
+}
+
+/* center the card */
+.auth-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+/* main login card */
+.auth-card {
+  width: 60vw;              /* << requested width */
+  max-width: 960px;
+  min-width: 320px;
+  border-radius: 20px;
+  padding: 24px 24px 20px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  display: flex;
+  gap: 24px;
+}
+
+/* split inside: 55% / 45% */
+.auth-left {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-right: 1px solid #e5e7eb;
+  padding-right: 20px;
+}
+
+.auth-right {
+  flex: 0 0 45%;  /* << typing area width */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* futuristic product name */
+.auth-product-name {
+  font-family: "Space Grotesk", system-ui, -apple-system, BlinkMacSystemFont,
+    "SF Pro Text", "Segoe UI", sans-serif;
+  font-size: 23px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+/* title / subtitle */
+.auth-title {
+  margin: 4px 0 0;
+  font-size: 26px;
+  line-height: 1.25;
+  color: #111827;
+}
+
+.auth-subtitle {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* bullet points */
+.auth-points {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #4b5563;
+}
+.auth-points li + li {
+  margin-top: 4px;
+}
+
+/* responsive behavior */
+@media (max-width: 900px) {
+  .auth-card {
+    width: 100%;
+    max-width: 640px;
+    flex-direction: column;
+  }
+
+  .auth-left {
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    padding-right: 0;
+    padding-bottom: 16px;
+  }
+
+  .auth-right {
+    flex: 1 1 auto;
+    padding-top: 8px;
+  }
+}
+
+/* Illustration area above forms */
+.auth-illustration {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.auth-illustration img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 0; /* remove rounded corners */
+  box-shadow: none; /* remove framing / shadow */
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .auth-illustration img {
+    max-width: 100%;
+  }
+}
+
+/* left-bottom placement for illustration */
+.auth-illustration-left {
+  margin-top: auto; /* push to bottom of left column */
+  display: flex;
+  align-items: flex-end;
+}
+.auth-illustration-left img {
+  width: 140px;
+  height: auto;
+  border-radius: 0; /* remove rounded corners */
+  box-shadow: none; /* remove framing / shadow */
+}
+
+@media (max-width: 900px) {
+  /* when stacked vertically, move illustration above the form to avoid very long pages */
+  .auth-illustration-left {
+    margin-top: 12px;
+    justify-content: center;
+    align-items: center;
+  }
+  .auth-illustration-left img {
+    width: 220px;
+  }
+}
