@@ -10,20 +10,27 @@ import illu9 from "../assets/illu9.jpg";
 import illu4 from "../assets/illu4.jpg";
 
 const images = [illu5, illu6, illu7, illu8, illu9, illu4];
-const nView = 3;
 
 const DashboardPage = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [current, setCurrent] = useState(0);
+  const [isNavigating, setIsNavigating] = useState(false);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((c) => (c + 1) % images.length);
-    }, 2600);
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleStart = () => {
+    if (isNavigating) return;
+    setIsNavigating(true);
+    // show loader a bit longer before routing
+    setTimeout(() => navigate("/assessment"), 1500);
+  };
 
   return (
     <div className="dashboard-container">
@@ -90,7 +97,7 @@ const DashboardPage = () => {
                         key={images[idx]+"-"+idx}
                         >
                           <figure style={{
-                              transform: offset===1? 'scale(1.15) translateY(-14px)': 'scale(0.94)',
+                              transform: offset===1? 'scale(1.05) translateY(-14px)': 'scale(0.94)',
                               transition:'transform 1.08s cubic-bezier(0.32,0.64,0.35,1)',
                               borderRadius:14,
                               boxShadow: offset===0 ? '0 17px 36px 0 rgba(255, 255, 255, 0.1)' : '0 17px 36px rgba(255, 255, 255, 0.05)'
@@ -106,14 +113,20 @@ const DashboardPage = () => {
             {/* CTA Button as before */}
             <button
               className="start-journey-button centered-wide"
-              onClick={()=>navigate("/assessment")}
+              onClick={handleStart}
+              disabled={isNavigating}
               style={{ position: 'absolute', left: '50%', top: '86%', transform: 'translate(-50%, 0)', width: '60%' }}
             >
-              Start Your Journey Now
+              {isNavigating ? "Preparing..." : "Start Your Journey Now"}
             </button>
           </div>
         </main>
       </div>
+      {isNavigating && (
+        <div className="nav-loader-overlay" aria-label="Loading next page">
+          <div className="loader-bubble" />
+        </div>
+      )}
     </div>
   );
 };

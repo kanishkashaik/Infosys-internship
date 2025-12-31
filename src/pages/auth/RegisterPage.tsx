@@ -90,7 +90,7 @@ const RegisterPage = () => {
             onChange={(e) => handleChange("fullName", e.target.value)}
             placeholder="e.g. Steve Harrington"
             style={{
-              width: "80%",
+              width: "70%",
               padding: "8px 10px",
               borderRadius: 8,
               border: `1px solid ${
@@ -125,7 +125,7 @@ const RegisterPage = () => {
             onChange={(e) => handleChange("email", e.target.value)}
             placeholder="you@school.org"
             style={{
-              width: "80%",
+              width: "70%",
               padding: "8px 10px",
               borderRadius: 8,
               border: `1px solid ${errors.email ? "#f97373" : "#d1d5db"}`,
@@ -158,7 +158,7 @@ const RegisterPage = () => {
             onChange={(e) => handleChange("password", e.target.value)}
             placeholder="At least 8 characters"
             style={{
-              width: "80%",
+              width: "70%",
               padding: "8px 10px",
               borderRadius: 8,
               border: `1px solid ${
@@ -195,7 +195,7 @@ const RegisterPage = () => {
             }
             placeholder="Re-enter your password"
             style={{
-              width: "80%",
+              width: "70%",
               padding: "8px 10px",
               borderRadius: 8,
               border: `1px solid ${
@@ -218,7 +218,7 @@ const RegisterPage = () => {
             fontSize: 12,
             color: "#6b7280",
             marginBottom: 10,
-            marginRight: "10%",
+            marginRight: "20%",
           }}
         >
           By creating an account, you agree to receive practice reminders and
@@ -230,7 +230,7 @@ const RegisterPage = () => {
           type="submit"
           disabled={loading}
           style={{
-            width: "87%",
+            width: "75%",
             padding: "9px 10px",
             borderRadius: 999,
             border: "none",

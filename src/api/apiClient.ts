@@ -1,7 +1,9 @@
 import axios from "axios";
+import { API_BASE_URL } from "../config/env";
 
+// Central axios instance that pulls its base URL from env configuration.
 const apiClient = axios.create({
-  baseURL: "http://localhost:5000/api", // TODO: change to your backend URL
+  baseURL: API_BASE_URL,
   withCredentials: true, // if backend uses cookies; otherwise you can remove
 });
 
@@ -23,7 +25,7 @@ apiClient.interceptors.request.use(
         config.headers = {
           ...(config.headers || {}),
           Authorization: `Bearer ${token}`,
-        };
+        } as typeof config.headers;
       }
     } catch (e) {
       // swallow errors to avoid breaking requests if storage access fails

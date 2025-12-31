@@ -3,9 +3,14 @@ import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
 import DashboardPage from "../pages/DashboardPage";
 import AssessmentPage from "../pages/AssessmentPage";
+import RecommendationPage from "../pages/RecommendationPage";
 import { useAuth } from "../context/AuthContext";
 
-const PrivateRoute = ({ children }: { children: JSX.Element }) => {
+type PrivateRouteProps = {
+  children: React.ReactElement;
+};
+
+const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const { token } = useAuth();
   if (!token) {
     return <Navigate to="/login" replace />;
@@ -33,6 +38,14 @@ function AppRouter() {
           element={
             <PrivateRoute>
               <AssessmentPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/recommendations"
+          element={
+            <PrivateRoute>
+              <RecommendationPage />
             </PrivateRoute>
           }
         />

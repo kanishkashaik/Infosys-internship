@@ -32,8 +32,9 @@ const LoginPage = () => {
       // on success, go to dashboard (or any protected page)
       navigate("/dashboard");
     } catch (err) {
-      // later: replace with proper error message from backend
-      alert("Login failed. Please check your credentials.");
+      // Show error message from backend if available
+      const errorMessage = err instanceof Error ? err.message : "Login failed. Please check your credentials.";
+      alert(errorMessage);
     }
   };
 
